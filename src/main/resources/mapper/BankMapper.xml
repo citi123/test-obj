@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BankDao">
+	<insert id="add" parameterType="com.city.testobj.domain.Bank"
+		keyProperty="id" useGeneratedKeys="true">
+		insert into Bank (
+		name,
+		code,
+		no,
+		address,
+		amount,
+		timeCreated,
+		timeModified
+		)
+		values(
+		#{name},
+		#{code},
+		#{no},
+		#{address},
+		#{amount},
+		#{timeCreated},
+		#{timeModified}
+		)
+	</insert>
+
+	<update id="out" parameterType="hashmap">
+		update Bank
+		set amount = amount - #{amount},
+		timeModified = #{timeModified}
+		where id = #{id} and amount >= #{amount}
+	</update>
+
+	<update id="in" parameterType="hashmap">
+		update Bank
+		set amount = amount + #{amount},
+		timeModified = #{timeModified}
+		where id = #{id}
+	</update>
+</mapper>

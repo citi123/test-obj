@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="EmployeeDao">
+	<select id="getById" resultType="com.city.testobj.domain.Employee">
+		select * from Employee where id = #{id}
+	</select>
+	
+	<insert id="add" parameterType="com.city.testobj.domain.Employee" useGeneratedKeys="true" keyProperty="id">
+		insert into Employee (
+			companyId,
+			bankId,
+			name,
+			idCardNo,
+			address,
+			gender,
+			amount,
+			timeCreated,
+			timeModified
+		)
+		values(
+			#{companyId},
+			#{bankId},
+			#{name},
+			#{idCardNo},
+			#{address},
+			#{gender},
+			#{amount},
+			#{timeCreated},
+			#{timeModified}			
+		)
+	</insert>
+	
+	
+	<update id="in" parameterType="hashmap">
+		update Employee
+		set amount = amount + #{amount},
+			timeModified = #{timeModified}
+		where id = #{id}	
+	</update>
+	
+	<update id="out" parameterType="hashmap">
+		update Employee
+		set amount = amount - #{amount},
+			timeModified = #{timeModified}
+		where id = #{id} and amount >= #{amount}	
+	</update>
+	
+</mapper>

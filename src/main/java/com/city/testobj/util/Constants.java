@@ -1,0 +1,28 @@
+package com.city.testobj.util;
+
+public class Constants {
+	public static class AliPayConfig {
+		public static final String MERCHAT_PRIVATE_KEY = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCCFEwJfu27qobfnzdyyrCSZUQ9RP85vMoHSwrkNTKUVy1tt9y8co0Mpvcf58xYKL3MYvuPLHu7lV4zlTwcER5T9SbpFaDcUQjPCmO7lcq19+w3//WzaIdpi6kr2ZP0skgK2S73CK5EowVsqRLZpSDBhdm7aRrNIZQFqchIuH2vlDUMIK3EG8hG1ECV/HYnhMiXOkDqe2bNw/yi+t8ahukryR1WaD2C01coRtqA5tZY0VEyvAOEMSauo5e/ATD0/2yi8Wcvm3dEIHS3VuQdkIOscpm2Om1kF40uhs+iHOplYaLc6SYKglwWvpZyfFx0JC+JVg4U8t4f7f4afiaERskbAgMBAAECggEAbZkQX8fUIhSRwwRxQYTJtO8hycXCjTElv3NY3+J6lUXGfvU1RIn3kbtz6CvznivljrmvXniKYAh/8FJC7Rr3RKH/gM+6UybrlxYX5ctVmnAjVSOSLvFZdnI3vTx7TuaPkKRgz78+pZH9Vgo2Wa6ppKRUSXVLIZ6zCvp8R9k5/J5QfOzlAOD9uzf+FSKWtU/vnmhh4jtdLanyvvLtSwLq3A9Hwjs5e/EqCYdM2OmZARX/KKzHgTfXBdzsolds2Iz5l004uL/LKoRjIEyJUvd5Zwr/UEAVs0+W34oYTVzlX0/WXI2c3TWCnvQf9pJdFcWcCXs6HKRsw8PkWc+gmlLDEQKBgQDzyYxrQ60JiLAFNUI9hzN9v2XBAJ9393asbi8gLM6nEA/Zsj6nPDARVfjXOi2G/JktQwnQOEgxJgIo2MGQBGNWHEw1SvJ1cLFvfTLDqabES0iBP3BoBUArRfNjtuDsYzm1EhkUGjZKZB6zIpa8gZwu4nnmUPJ2bRD9N3t6xJhFzQKBgQCImH/ex1tTc5fcesBz83zI2kJpoRWB9OCAIXutlJCz+jQa4d/kTBifoVJxd76h+T3g+kav0JTnfMyhdwIOCdARbMWOJNKHcFn+DnEw4FvQbdG/P8K28EWhNJ0jw5lL3gZ8LSyCO23eGrP+0eTF+P2o/s1gim+45UrhUNnEyMfihwKBgQCcOdbAjnf/Ghci30R5xYCb3uHIUyveZzknutx8U/qCWOqvaWh5JzrugRecZW3ziUBoHwPU6Zxp0p+jqXQxZH58GlpD9Kl31SX/+k1j0f5K4KuwGAViw6qhkIwupG1zTwsWHGjx1vJfrdV2mn3ag3yhFwVjMRCQD8jJXJrGy+GBKQKBgHKPnCcHAkRSXVpQJVraKpz12N9od3ZgH223J1hkkpwvy0WEjVeWrswq6884g8yrEke/AEvyXwBq/eCpxDJr7nK+zE2z+lIXW5KlIC/C6546jMCexDrT90IFs4lMQiSMGNpKtNqg5ztxH+cmuH2Fn5D96tf+I0dqH0wrmAjf8Cy/AoGBAI5nt6QIEH5zjns1XxyJYSlOREf36xi1VFzhqpRYOIzifHAGv946lNr6KiuAqv1R8tiUFxZSx/0f1C0nkf2816jgNQRHsHVe+rt43zXbgHXPHMAlDELnQIelN+l0yOV3Mgw+96eld/WlCNcwyR3U7uIErB6xQSUYlM28vcEPXKVi";
+		public static final String MEECHANT_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAghRMCX7tu6qG3583csqwkmVEPUT/ObzKB0sK5DUylFctbbfcvHKNDKb3H+fMWCi9zGL7jyx7u5VeM5U8HBEeU/Um6RWg3FEIzwpju5XKtffsN//1s2iHaYupK9mT9LJICtku9wiuRKMFbKkS2aUgwYXZu2kazSGUBanISLh9r5Q1DCCtxBvIRtRAlfx2J4TIlzpA6ntmzcP8ovrfGobpK8kdVmg9gtNXKEbagObWWNFRMrwDhDEmrqOXvwEw9P9sovFnL5t3RCB0t1bkHZCDrHKZtjptZBeNLobPohzqZWGi3OkmCoJcFr6WcnxcdCQviVYOFPLeH+3+Gn4mhEbJGwIDAQAB";
+
+		public static final String SERVER_URL = "https://openapi.alipaydev.com/gateway.do";
+		public static final String APP_ID = "2016091000479403";
+		public static final String FORMAT = "JSON";
+		public static final String CHARSET_UTF8 = "utf-8";
+		public static final String ALI_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwC10mwxgTrWuw6m+p6Fxu9HKiP++OoA6JcMsnwORdAd4wigNXRxY3A544dC/tPXsmqBy1JGZK7/Ri0/vrNT9FGLmdmFH+rWG6U/Rp0TfPwvPldT71XzzFixuAp7dVzaAPpzwiET6LLtG+Yj+iuv6SnIYxuGkSwZQ5XAKAiQx7tbOfR6cMbYPG3qlu5Kso3PhBJxpPM7+C4+vnio8flJ6cBNSDPzZSFqCdC+k+ukxjJbQLBtw20T2UraW3GJbBInI79xmd6JeAww1KjIiyRbZYNQvEJawDVfcsDTXKNtKFM4IdIwlvLvNwhVLnRE1sWreM/Nj0veYp2Hn86qs6IDRfwIDAQAB";
+		
+		public static enum SIGN_TYPE{
+			RSA1("SHA1withRSA"),
+			RSA2("SHA256withRSA")
+			;
+			private String value;
+			SIGN_TYPE(String value){
+				this.value = value;
+			}
+			public String getValue() {
+				return value;
+			}
+		}
+
+	}
+}
