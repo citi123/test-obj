@@ -7,6 +7,8 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.URLEncoder;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -58,6 +60,8 @@ public class WxPayController {
 			params.put("trade_type", "NATIVE");
 			params.put("product_id", "12");
 		}
+
+		params.put("time_expire", LocalDateTime.now().plusMinutes(5L).format(DateTimeFormatter.ofPattern("uuuuMMddHHmmss")));
 
 		Map<String, String> result = wxpay.unifiedOrder(params);
 		LOGGER.info("响应结果:{}", result);

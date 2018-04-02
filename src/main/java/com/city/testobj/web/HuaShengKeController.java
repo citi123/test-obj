@@ -1,5 +1,7 @@
 package com.city.testobj.web;
 
+import java.awt.image.BufferedImage;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -7,12 +9,17 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alipay.api.domain.AlipayTradePrecreateModel;
 import com.alipay.api.domain.AlipayTradeWapPayModel;
+import com.alipay.api.request.AlipayTradePrecreateRequest;
 import com.alipay.api.request.AlipayTradeWapPayRequest;
+import com.alipay.api.response.AlipayTradePrecreateResponse;
 import com.alipay.api.response.AlipayTradeWapPayResponse;
+import com.city.testobj.util.ErWeiMa;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -66,11 +73,11 @@ public class HuaShengKeController {
 		// model.setExtendParams(extendParams);
 
 		model.setGoodsType("0");
-		model.setTimeoutExpress("90m");
+		model.setTimeoutExpress("5m");
 		// model.setEnablePayChannels("");
 		// model.setDisablePayChannels("");
 		// auth_token
-		model.setQrPayMode("2");
+		model.setQrPayMode("4");
 		model.setQrcodeWidth(300L);
 
 		request.setBizModel(model);
@@ -138,5 +145,54 @@ public class HuaShengKeController {
 		}
 
 	}
+	@RequestMapping("/test4")
+	public void scanPay(HttpServletRequest req, HttpServletResponse res,String out_trade_no) throws Exception {
+		AlipayClient alipayClient = new DefaultAlipayClient(Constants.AliPayConfig.SERVER_URL,
+				Constants.AliPayConfig.APP_ID, Constants.AliPayConfig.MERCHAT_PRIVATE_KEY,
+				Constants.AliPayConfig.FORMAT, Constants.AliPayConfig.CHARSET_UTF8,
+				Constants.AliPayConfig.ALI_PUBLIC_KEY, Constants.AliPayConfig.SIGN_TYPE.RSA2.name());
+
+		AlipayTradePrecreateRequest request = new AlipayTradePrecreateRequest();
+
+		AlipayTradePrecreateModel model = new AlipayTradePrecreateModel();
+		model.setOutTradeNo("out_trade_no" + out_trade_no);
+		// model.setSellerId("");
+		model.setTotalAmount("100");
+		// model.setDiscountableAmount("");
+		model.setSubject("Iphone6 16G");
+		// model.setGoodsDetail(null);
+		model.setBody("Iphone6 16G");
+		// model.setOperatorId("");
+		// model.setStoreId("");
+		// model.setDisablePayChannels("");
+		// model.setEnablePayChannels("");
+		// model.setTerminalId("");
+		// model.setExtendParams(null);
+		model.setTimeoutExpress("20m");
+		// model.setBusinessParams("");
+		request.setBizModel(model);
+
+		AlipayTradePrecreateResponse response = alipayClient.execute(request);
+
+		BeanUtils.printObj(response);
+
+		if(response.isSuccess()){
+			BufferedImage bufferedImage = ErWeiMa.create(response.getQrCode(),"utf-8");
+
+			OutputStream os = res.getOutputStream();
+			ImageIO.write(bufferedImage, "png", os);
+			os.flush();
+			os.close();
+		}else{
+			res.setCharacterEncoding("utf-8");
+			res.setContentType("text/html;charset=utf-8");
+			PrintWriter writer = res.getWriter();
+			writer.write("失败了");
+			writer.flush();
+			writer.close();
+		}
+
+	}
+
 
 }
