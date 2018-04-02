@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+    <property name="LOG_FILE" value="logs/application.log"/>
+
+    <property name="FILE_LOG_PATTERN" value="^V^ [%p] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] [%c:%L] %X{req.xRequestId} %m%n" />
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>14</maxHistory>
+            <totalSizeCap>5GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.ciicgat" level="${CIICGAT_ROOT_LEVEL:-DEBUG}" additivity="false">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="console" />
+    </logger>
+    <logger name="com.gat" level="${CIICGAT_ROOT_LEVEL:-DEBUG}" additivity="false">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="console" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="console" />
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>
