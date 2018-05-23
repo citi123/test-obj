@@ -22,7 +22,7 @@ public class Employee implements Serializable{
 	
 	private BigDecimal amount;
 	
-	private Date timeCreated;
+	private transient Date timeCreated;
 	
 	private Date timeModified;
 
