@@ -24,14 +24,13 @@ import com.zaxxer.hikari.HikariDataSource;
 
 /**
  * desc: 数据源基类
- * author: alaskwang
  * date: 2017/8/24
  */
 public abstract class DSConfig {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DSConfig.class);
 
-    private static final String packagePath = "com.ciicgat.assets.domain.entity";
+    private static final String packagePath = "com.city.testobj.domain";
 
     private static final String resourcePath = "classpath:/mapper/*.xml";
 

@@ -15,7 +15,6 @@ import org.springframework.core.env.MutablePropertySources;
 
 /**
  * desc: 读数据源
- * author: alaskwang
  * date: 2017/8/24
  */
 

@@ -22,15 +22,6 @@
         </encoder>
     </appender>
 
-    <logger name="com.ciicgat" level="${CIICGAT_ROOT_LEVEL:-DEBUG}" additivity="false">
-        <appender-ref ref="FILE" />
-        <appender-ref ref="console" />
-    </logger>
-    <logger name="com.gat" level="${CIICGAT_ROOT_LEVEL:-DEBUG}" additivity="false">
-        <appender-ref ref="FILE" />
-        <appender-ref ref="console" />
-    </logger>
-
     <root level="INFO">
         <appender-ref ref="console" />
         <appender-ref ref="FILE"/>

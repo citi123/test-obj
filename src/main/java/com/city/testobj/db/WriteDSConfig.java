@@ -16,7 +16,6 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 /**
  * desc: 写数据源
- * author: alaskwang
  * date: 2017/8/23
  */
 @Configuration
