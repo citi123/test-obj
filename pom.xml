@@ -26,7 +26,7 @@
 		<feign.version>9.5.1</feign.version>
 		<okhttp.version>3.9.0</okhttp.version>
 		<httpcomponents.version>4.5.3</httpcomponents.version>
-		<shiro.version>1.4.0</shiro.version>
+		<shiro.version>1.7.1</shiro.version>
 		<poi.version>3.16</poi.version>
 		<amqp-client.version>4.1.0</amqp-client.version>
 	</properties>
